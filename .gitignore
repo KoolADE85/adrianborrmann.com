@@ -3,3 +3,4 @@
 *.pot
 *.c9revisions
 node_modules/
+settings_local.py

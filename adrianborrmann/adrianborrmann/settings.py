@@ -2,8 +2,6 @@ import os
 
 # Django settings for adrianborrmann project.
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
@@ -24,12 +22,6 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
-
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [
-    '*',
-]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -164,3 +156,6 @@ LOGGING = {
         },
     }
 }
+
+# import local settings overriding the defaults
+from settings_local import *
