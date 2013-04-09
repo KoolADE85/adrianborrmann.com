@@ -5,7 +5,7 @@
                 "less/reset.less",
                 "less/layout.less",
                 "less/base.less",
-                "less/base.less",
+                "less/module.less",
                 "less/page.less"
             ],
             "attrs": {

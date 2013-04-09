@@ -12,8 +12,17 @@
         <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
 
         <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
+        
+        {% if debug %}
+        <link href="{{ STATIC_URL }}dist/core.min.css" rel="stylesheet" type="text/css" media="all" />
+        {% else %}
         <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/layout.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/module.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/page.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/state.css" rel="stylesheet" type="text/css" media="all" />
+        {% endif %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
