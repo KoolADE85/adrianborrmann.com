@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Adrian Borrmann - {% block page_title %}Web Developer{% endblock %}</title>
+        
+        <meta name="description" content="Toronto-based interactive web developer">
+        <meta name="keywords" content="">
+
+        
+        <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
+
+        <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
+        <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+    </body>
+</html>

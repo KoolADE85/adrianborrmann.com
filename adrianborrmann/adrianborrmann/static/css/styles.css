@@ -1,0 +1,83 @@
+body {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+}
+
+a {
+    color: rgb(54, 95, 145);
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Bevan', sans-serif;
+    font-size: 74px;
+    text-transform: lowercase;
+    color: rgb(195, 211, 231);
+    line-height: 1.3em;
+}
+
+h2 {
+    line-height: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: lowercase;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+span {
+    line-height: 15px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+#Contact {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+}
+
+#Experience li {
+    list-style-type: none;
+}
+
+#Education h3 {
+    display: inline;
+}
+
+section > ul {
+    margin-left: 35px;
+    list-style: inside disc;
+}
+
+li > ul {
+    margin-left: 35px;
+    list-style: inside circle;
+}
+
+.title {
+    float: left;
+    clear: both;
+}
+.link,
+.dates {
+    float: right;
+}
+
+section > ul > li {
+    overflow: hidden;
+    clear: both;
+    margin-top: 10px;
+}
