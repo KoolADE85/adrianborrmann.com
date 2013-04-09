@@ -1,0 +1,27 @@
+/* mixins.less
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+body {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+section {
+  margin-bottom: 20px;
+}
+section:last-child {
+  margin-bottom: 0;
+}
+section > ul {
+  margin-left: 35px;
+  list-style: inside disc;
+}
+section ul > li {
+  overflow: hidden;
+  clear: both;
+  margin-top: 8px;
+}
+section li > ul {
+  margin-left: 35px;
+  list-style: inside circle;
+}

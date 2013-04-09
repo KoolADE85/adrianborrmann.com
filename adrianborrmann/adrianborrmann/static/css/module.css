@@ -1,0 +1,11 @@
+/* mixins.less
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+.title {
+  float: left;
+  clear: both;
+}
+.link,
+.dates {
+  float: right;
+}

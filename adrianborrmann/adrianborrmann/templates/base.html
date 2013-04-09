@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Adrian Borrmann - {% block page_title %}Web Developer{% endblock %}</title>
+        
+        <meta name="description" content="Toronto-based interactive web developer">
+        <meta name="keywords" content="">
+
+        
+        <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
+
+        <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
+        
+        {% if debug %}
+        <link href="{{ STATIC_URL }}dist/core.min.css" rel="stylesheet" type="text/css" media="all" />
+        {% else %}
+        <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/layout.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/module.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/page.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ STATIC_URL }}css/state.css" rel="stylesheet" type="text/css" media="all" />
+        {% endif %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% block content %}{% endblock %}
+        
+        {% if debug %}
+        <script>
+            (function (d) {
+                var s = d.createElement('script'); s.src = d.location.protocol + '//' + d.location.hostname + ':35729/livereload.js?snipver=1';
+                d.body.insertBefore(s);
+            })(document);
+        </script>
+        {% endif %}
+
+    </body>
+</html>
