@@ -1,0 +1,121 @@
+@import "trapeze.less";
+
+
+// TYPOGRAPHY
+// =================================================
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    color: @colour_base;
+    font-family: @font_default;
+    font-size: @font_size;
+    line-height: 1.6;
+}
+
+
+// Header
+// -------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+}
+
+h1 {
+    font-family: 'Bevan', sans-serif;
+    font-size: 76px;
+    text-transform: lowercase;
+    color: rgb(195, 211, 231);
+    line-height: 1.3em;
+    white-space: nowrap;
+}
+
+h2 {
+    line-height: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: lowercase;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+// Inline and Text Blocks
+// -------------------------------------------------
+
+p {
+    margin: 0 0 10px;
+}
+
+span {
+    line-height: 15px;
+}
+
+// Anchors
+// -------------------------------------------------
+
+a {
+    color: rgb(54, 95, 145);
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+// --- Forms -----------------------------------------
+
+input[type=text],
+input[type=password],
+textarea,
+select {
+    background-color: #fff;
+    border: 1px solid #bbb;
+    margin: 2px 0;
+}
+
+input[type=text]:hover,
+input[type='password']:hover,
+textarea:hover,
+select:hover {
+    border-color: #aaa;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus,
+select:focus {
+    border-color: #666;
+    outline: 2px solid #ffffaa;
+}
+
+input,
+select {
+    cursor: pointer;
+}
+
+input[type='text'] {
+    cursor: text;
+    padding: 5px;
+}
+
+textarea {
+    padding: 5px;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    position: relative;
+    top: 3px;
+}

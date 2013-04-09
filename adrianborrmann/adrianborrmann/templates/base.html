@@ -18,5 +18,15 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% block content %}{% endblock %}
+        
+        {% if debug %}
+        <script>
+            (function (d) {
+                var s = d.createElement('script'); s.src = d.location.protocol + '//' + d.location.hostname + ':35729/livereload.js?snipver=1';
+                d.body.insertBefore(s);
+            })(document);
+        </script>
+        {% endif %}
+
     </body>
 </html>
