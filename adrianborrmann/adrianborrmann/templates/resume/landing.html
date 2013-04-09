@@ -32,30 +32,12 @@
         <li>
             <h3>Front-end Web Development</h3>
             <ul>
+                {% for website in websites %}
                 <li>
-                    <span class="title">Almay: Get the Look</span>
-                    <span class="link"><a href="http://thelook.almay.com">http://thelook.almay.com</a></span>
+                    <span class="title">{{ website.name }}</span>
+                    <span class="link"><a href="{{ website.url }}">{{ website.url }}</a></span>
                 </li>
-                <li>
-                    <span class="title">Shoppers Drug Mart In-Store Kiosk</span>
-                    <span class="link">innovative kiosk build on HTML 5 and CSS 3</span>
-                </li>
-                <li>
-                    <span class="title">KRAFT Peanut Butter</span>
-                    <span class="link"><a href="http://www.kraftpeanutbutter.com">http://www.kraftpeanutbutter.com</a></span>
-                </li>
-                <li>
-                    <span class="title">Shoppers Drug Mart Seasonal Campaigns</span>
-                    <span class="link"><a href="http://onlyat.shoppersdrugmart.ca">http://onlyat.shoppersdrugmart.ca</a></span>
-                </li>
-                <li>
-                    <span class="title">OREO 100<sup>th</sup> Birthday</span>
-                    <span class="link"><a href="http://www.oreo100.ca/en/timeline/">http://www.oreo100.ca/en/timeline/</a></span>
-                </li>
-                <li>
-                    <span class="title">Lu Biscuits</span>
-                    <span class="link"><a href="http://www.lubiscuits.ca">http://www.lubiscuits.ca</a></span>
-                </li>
+                {% endfor %}
             </ul>
         </li>
         <li>
