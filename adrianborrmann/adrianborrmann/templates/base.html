@@ -5,29 +5,49 @@
 
         <title>Adrian Borrmann - {% block page_title %}Web Developer{% endblock %}</title>
         
-        <meta name="description" content="Toronto-based interactive web developer">
-        <meta name="keywords" content="">
-
+        <meta name="description" content="Toronto-based web developer with expert skills in HTML5, CSS3, and JavaScript.">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
         
         <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
 
         <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
         
         {% if debug %}
-        <link href="{{ STATIC_URL }}dist/core.min.css" rel="stylesheet" type="text/css" media="all" />
-        {% else %}
         <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ STATIC_URL }}css/layout.css" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ STATIC_URL }}css/module.css" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ STATIC_URL }}css/page.css" rel="stylesheet" type="text/css" media="all" />
         <link href="{{ STATIC_URL }}css/state.css" rel="stylesheet" type="text/css" media="all" />
+        {% else %}
+        <link href="{{ STATIC_URL }}dist/core.min.css" rel="stylesheet" type="text/css" media="all" />
         {% endif %}
+        
+        <script type="text/javascript" src="{{ STATIC_URL }}lib/modernizr.custom.js" charset="utf-8"></script>
+        <script>
+            Modernizr.load({
+                load : {
+                    {% if debug %}
+                    "underscore": "{{ STATIC_URL }}lib/underscore.js",
+                    "jquery": "{{ STATIC_URL }}lib/jquery.js",
+                    "initialize": "{{ STATIC_URL }}js/adrianborrmann.initialize.js"
+                    {% else %}
+                    "core-scripts": "{{ STATIC_URL }}dist/js/core.min.js"
+                    {% endif %}
+                },
+                complete : function() {
+                    $(function() {
+                        new AdrianBorrmann.Core();
+                    });
+                }
+            });
+        </script>
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% block content %}{% endblock %}
         
+        {% comment %}
         {% if debug %}
         <script>
             (function (d) {
@@ -36,6 +56,6 @@
             })(document);
         </script>
         {% endif %}
-
+        {% endcomment %}
     </body>
 </html>
