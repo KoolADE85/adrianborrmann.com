@@ -16,20 +16,20 @@ module.exports = function(grunt) {
 
         less: assets.getLessConfig(),
 
-        //jshint: {
-        //    options: {
-        //        jshintrc: '<%= static_folder %>js/.jshintrc'
-        //    },
-        //    gruntfile: {
-        //        options: {
-        //            jshintrc: '.jshintrc'
-        //        },
-        //        src: 'Gruntfile.js'
-        //    },
-        //    project : {
-        //        src: '<%= static_folder %>js/**/*.js'
-        //    }
-        //},
+        jshint: {
+            options: {
+                jshintrc: '<%= static_folder %>js/.jshintrc'
+            },
+            gruntfile: {
+                options: {
+                    jshintrc: '.jshintrc'
+                },
+                src: 'Gruntfile.js'
+            },
+            project : {
+                src: '<%= static_folder %>js/**/*.js'
+            }
+        },
 
         concat: assets.getConcatConfig({
             options: {
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.loadNpmTasks('grunt-regarde');
     grunt.loadNpmTasks('grunt-contrib-livereload');
@@ -100,8 +100,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-exec');
 
-    //grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify', 'jshint']);
-    grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify']);
+    grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify', 'jshint']);
+    //grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify']);
 
     grunt.registerTask('watch', ['livereload-start', 'clean', 'less', 'regarde']);
 

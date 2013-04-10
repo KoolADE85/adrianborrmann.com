@@ -1,65 +1,53 @@
 /*
  * Adrian Borrmann
  * http://adrianborrmann.com
- *
- * Copyright (c) 2013 Trapeze
   */
 
 (function () {
+    
     var global = this;
+    var _ = global._;
+    var $ = global.jQuery;
 
 
-    // Initial setup
-    // =============
-
-    // Map dependancies to local variables
-    var _       = global._;
-    var $       = global.jQuery;
+    var AdrianBorrmann = (global.AdrianBorrmann || (global.AdrianBorrmann = { }));
 
 
-    // Constructor
-    // ===========
-
-    var Trapeze = (global.Trapeze || (global.Trapeze = { }));
-
-    var Core = Trapeze.Core = function (options) {
+    var Core = AdrianBorrmann.Core = function(options) {
         var defaults = { };
-
         this.config         = $.extend(true, defaults, options || { });
-
-        this._initialize();
-    };
-
-
-    // Initialization
-    // ==============
-
-    Core.prototype._initialize = function () {
-        this._registerInstanceVars();
+        
         this._initializePage();
     };
 
-    Core.prototype._registerInstanceVars = function () {
-    };
 
-    Core.prototype._initializePage = function () {
-        var classnames  = $('body').prop('class').split(' ');
-        var index       = classnames.length;
-
-        if (index > 1) {
+    Core.prototype._initializePage = function() {
+        var classnames = $('body').prop('class').split(' ');
+        var index = classnames.length;
+        
+        if (index > 0) {
             while(index--) {
                 switch (classnames[index]) {
-                    case 'home-page':
-                    case 'detail-page':
-                        // Execute page specific javascript
-                        break;
-
-                    case 'contact-page':
+                    case 'resume-page':
+                        this._initResume();
                         break;
                 }
             }
         }
     };
-
-
+    
+    
+    Core.prototype._initResume = function() {
+        
+        $('section').on('click', function(e) {
+            var openCurrentTarget = true;
+            $('section.active').each(function() {
+               if (e.currentTarget == this) openCurrentTarget = false;
+               $(this).removeClass('active');
+            });
+            
+            if (openCurrentTarget) $(this).addClass('active');
+        });
+    };
+    
 }).call(this);

@@ -1,8 +1,14 @@
 /* mixins.less
  * Snippets of reusable CSS to develop faster and keep code readable
  * ----------------------------------------------------------------- */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
 body {
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
   max-width: 700px;
   margin: 0 auto;
 }
