@@ -19,7 +19,7 @@
         "core": {
             "src": [
                 "lib/underscore.js",
-                "lib/jquery-1.7.1.js",
+                "lib/jquery.js",
                 "js/adrianborrmann.initialize.js"
             ],
             "dest": "dist/core.min.js"
