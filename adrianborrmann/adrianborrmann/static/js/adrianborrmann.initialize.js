@@ -16,7 +16,6 @@
     var Core = AdrianBorrmann.Core = function(options) {
         var defaults = { };
         this.config         = $.extend(true, defaults, options || { });
-        
         this._initializePage();
     };
 

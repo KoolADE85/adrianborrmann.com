@@ -1,4 +1,4 @@
-/*! Adrian Borrmann - v0.1.0 - 2013-04-10
+/*! Adrian Borrmann - v0.1.0 - 2013-04-24
 * http://adrianborrmann.com
 * Copyright (c) 2013 Trapeze; *///     Underscore.js 1.2.3
 //     (c) 2009-2011 Jeremy Ashkenas, DocumentCloud Inc.
@@ -10262,7 +10262,6 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
     var Core = AdrianBorrmann.Core = function(options) {
         var defaults = { };
         this.config         = $.extend(true, defaults, options || { });
-        
         this._initializePage();
     };
 
