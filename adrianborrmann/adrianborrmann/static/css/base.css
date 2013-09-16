@@ -39,6 +39,12 @@ h3 {
   font-size: 13px;
   font-weight: bold;
 }
+h4 {
+  padding: 2px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #365f91;
+}
 p {
   margin: 0 0 10px;
 }

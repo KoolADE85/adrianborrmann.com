@@ -7,7 +7,7 @@ from adrianborrmann.resume.models import Website
 
 def home(request):
     context = {
-        'websites': Website.objects.order_by('-order'),
+        'websites': Website.objects.all,
         'debug': TEMPLATE_DEBUG
     }
     return render(request, 'resume/landing.html', context)

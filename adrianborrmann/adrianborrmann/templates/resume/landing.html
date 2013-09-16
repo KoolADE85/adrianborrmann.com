@@ -21,24 +21,25 @@
         <li>Proficiency with JavaScript libraries like jQuery, Node.js, Backbone.js, and others</li>
         <li>Experience integrating Facebook, Twitter, YouTube, and countless other APIs</li>
         <li>Familiar with various analytics engines and SEO principles</li>
-        <li>Continuously improving: I write high-quality, efficient code</li>
+        <li>Always curious and continuously improving: I write high-quality, efficient code</li>
     </ul>
 </section>
 
 <section id="Experience">
     <h2>Relevant Experience</h2>
+    <h3>Senior Web Application Developer at Trapeze</h3>
     <p>I have over 5 years of experience developing clean, modern websites.</p>
-    <p>I have developed my career at <a href="http://www.trapeze.com">Trapeze</a>, a Toronto digital agency, building projects from small microsites to large corporate environments. I'm right at home in a fast-paced team-work environment.</p>
-    <p>Below are some examples of my work. This is not an exhaustive collection—I have lots of other examples I can show on request.</p>
 
-    <h3>Front-end Web Development</h3>
     <ul class="projects">
         {% for website in websites %}
         <li>
-            <span class="title">{{ website.name }}</span>
-            <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{{ website.end_date|date:"F Y" }}</span>
+            <h4 class="title">{{ website.name }}</h4>
+            <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{% if website.is_current %}Present{% else %}{{ website.end_date|date:"F Y" }}{% endif %}</span>
             <div class="link"><a href="{{ website.url }}">{{ website.url }}</a></div>
+
+            {% if website.description %}
             <div class="description markdown-content">{{ website.description|markdown }}</div>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
