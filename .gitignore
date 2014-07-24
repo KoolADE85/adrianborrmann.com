@@ -2,5 +2,6 @@
 *.log
 *.pot
 *.c9revisions
+*.db
 node_modules/
 settings_local.py
