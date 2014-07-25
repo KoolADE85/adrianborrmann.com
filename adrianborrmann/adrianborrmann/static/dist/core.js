@@ -1,6 +1,6 @@
-/*! Adrian Borrmann - v0.1.0 - 2013-04-24
+/*! Adrian Borrmann - v0.1.0 - 2014-07-25
 * http://adrianborrmann.com
-* Copyright (c) 2013 Trapeze; *///     Underscore.js 1.2.3
+* Copyright (c) 2014 Trapeze; *///     Underscore.js 1.2.3
 //     (c) 2009-2011 Jeremy Ashkenas, DocumentCloud Inc.
 //     Underscore is freely distributable under the MIT license.
 //     Portions of Underscore are inspired or borrowed from Prototype,
@@ -10252,7 +10252,6 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 (function () {
     
     var global = this;
-    var _ = global._;
     var $ = global.jQuery;
 
 
@@ -10267,6 +10266,9 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 
     Core.prototype._initializePage = function() {
+
+        $('html').removeClass('loading');
+
         var classnames = $('body').prop('class').split(' ');
         var index = classnames.length;
         
@@ -10275,6 +10277,12 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
                 switch (classnames[index]) {
                     case 'resume-page':
                         this._initResume();
+                        break;
+
+                    case 'home':
+                        break;
+
+                    default:
                         break;
                 }
             }
@@ -10287,11 +10295,15 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         $('section').on('click', function(e) {
             var openCurrentTarget = true;
             $('section.active').each(function() {
-               if (e.currentTarget == this) openCurrentTarget = false;
-               $(this).removeClass('active');
+                if (e.currentTarget === this) {
+                    openCurrentTarget = false;
+                }
+                $(this).removeClass('active');
             });
             
-            if (openCurrentTarget) $(this).addClass('active');
+            if (openCurrentTarget) {
+                $(this).addClass('active');
+            }
         });
     };
     

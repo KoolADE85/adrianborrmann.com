@@ -6,7 +6,6 @@
 (function () {
     
     var global = this;
-    var _ = global._;
     var $ = global.jQuery;
 
 
@@ -21,6 +20,9 @@
 
 
     Core.prototype._initializePage = function() {
+
+        $('html').removeClass('loading');
+
         var classnames = $('body').prop('class').split(' ');
         var index = classnames.length;
         
@@ -29,6 +31,12 @@
                 switch (classnames[index]) {
                     case 'resume-page':
                         this._initResume();
+                        break;
+
+                    case 'home':
+                        break;
+
+                    default:
                         break;
                 }
             }
@@ -41,11 +49,15 @@
         $('section').on('click', function(e) {
             var openCurrentTarget = true;
             $('section.active').each(function() {
-               if (e.currentTarget == this) openCurrentTarget = false;
-               $(this).removeClass('active');
+                if (e.currentTarget === this) {
+                    openCurrentTarget = false;
+                }
+                $(this).removeClass('active');
             });
             
-            if (openCurrentTarget) $(this).addClass('active');
+            if (openCurrentTarget) {
+                $(this).addClass('active');
+            }
         });
     };
     

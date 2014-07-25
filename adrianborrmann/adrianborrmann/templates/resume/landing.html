@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load markup %}
 
 
 {% block body_class %}resume-page{% endblock %}
@@ -20,36 +21,27 @@
         <li>Proficiency with JavaScript libraries like jQuery, Node.js, Backbone.js, and others</li>
         <li>Experience integrating Facebook, Twitter, YouTube, and countless other APIs</li>
         <li>Familiar with various analytics engines and SEO principles</li>
-        <li>Continuously improving: I write high-quality, efficient code</li>
+        <li>Always curious and continuously improving: I write high-quality, efficient code</li>
     </ul>
 </section>
 
 <section id="Experience">
     <h2>Relevant Experience</h2>
+    <h3>Senior Web Application Developer at Trapeze</h3>
     <p>I have over 5 years of experience developing clean, modern websites.</p>
-    <p>I have developed my career at <a href="http://www.trapeze.com">Trapeze</a>, a Toronto digital agency, building projects from small microsites to large corporate environments. I'm right at home in a fast-paced team-work environment.</p>
-    <p>Below are some examples of my work. This is not an exhaustive collection—I have lots of other examples I can show on request.</p>
 
-    <ul>
+    <ul class="projects">
+        {% for website in websites %}
         <li>
-            <h3>Full Stack Web Development</h3>
-            <ul>
-                {% for website in websites %}
-                <li>
-                    <span class="title">{{ website.name }}</span>
-                    <span class="link"><a href="{{ website.url }}">{{ website.url }}</a></span>
-                </li>
-                {% endfor %}
-            </ul>
+            <h4 class="title">{{ website.name }}</h4>
+            <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{% if website.is_current %}Present{% else %}{{ website.end_date|date:"F Y" }}{% endif %}</span>
+            <div class="link"><a href="{{ website.url }}">{{ website.url }}</a></div>
+
+            {% if website.description %}
+            <div class="description markdown-content">{{ website.description|markdown }}</div>
+            {% endif %}
         </li>
-        <li>
-            <h3>Team Management</h3>
-            <p>I am a solid team player. I understand what good development looks like, and the processes needed to deliver quality code on time. I currently manage a team of five developers, with a particular focus on improving best practices and gaining efficiencies through automation.</p>
-        </li>
-        <li>
-            <h3>Continuous Improvement</h3>
-            <p>I'm passionate about development, and as a result I am highly motivated to keep growing my knowledge and improving my skills. There are always new technologies, libraries, and methodologies to learn and I strive to push myself to stay on top.</p>
-        </li>
+        {% endfor %}
     </ul>
 </section>
 

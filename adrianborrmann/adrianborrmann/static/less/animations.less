@@ -1,0 +1,13 @@
+// Desktop Animations
+@media only screen and (min-width: 969px) {
+    html {
+        transform: scale(1);
+        opacity: 1;
+        transition: opacity 0.5s, transform 0.5s;
+        
+        &.loading {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+    }
+}
