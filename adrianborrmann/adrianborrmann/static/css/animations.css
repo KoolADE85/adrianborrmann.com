@@ -1,4 +1,7 @@
-@media only screen and (min-width: 969px) {
+/* mixins.less
+ * Snippets of reusable CSS to develop faster and keep code readable
+ * ----------------------------------------------------------------- */
+@media only screen and (min-width: 700px) {
   body {
     transform: scale(1);
     transform-origin: bottom center;
@@ -35,5 +38,14 @@
   }
   #Experience li:nth-child(6) {
     transition-delay: 1.3s;
+  }
+}
+@media only screen and (max-width: 700px) {
+  section > ul {
+    max-height: 0px;
+    transition: max-height 0.5s;
+  }
+  section.active > ul {
+    max-height: 10000px;
   }
 }

@@ -1,15 +1,23 @@
 /* mixins.less
  * Snippets of reusable CSS to develop faster and keep code readable
  * ----------------------------------------------------------------- */
-.resume-page #Contact {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-align: right;
+@media (min-width: 700px) {
+  .resume-page #Contact {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: right;
+  }
+}
+@media (max-width: 700px) {
+  .resume-page #Contact {
+    border: none;
+    margin-bottom: 35px;
+  }
+  .resume-page #Contact > div {
+    display: inline-block;
+  }
 }
 .resume-page #Experience .projects > li {
   list-style-type: none;
-}
-.resume-page #Education h3 {
-  display: inline;
 }

@@ -1,8 +1,5 @@
-@import "trapeze.less";
+@import "settings.less";
 
-
-// TYPOGRAPHY
-// =================================================
 
 html {
     -webkit-text-size-adjust: 100%;
@@ -13,7 +10,7 @@ body {
     color: @colour_base;
     font-family: @font_default;
     font-size: @font_size;
-    line-height: 1.1;
+    line-height: 1.1em;
 }
 
 
@@ -28,8 +25,8 @@ h1 {
     font-family: 'Bevan', sans-serif;
     font-size: 76px;
     text-transform: lowercase;
-    color: #c3d3e7;
-    line-height: 1.3em;
+    color: @colour_em;
+    line-height: 1.5em;
     white-space: nowrap;
 }
 
@@ -43,7 +40,7 @@ h2 {
 h3 {
     font-family: 'Raleway', sans-serif;
     text-transform: lowercase;
-    font-size: 13px;
+    font-size: @font_size;
     font-weight: bold;
 }
 
@@ -51,7 +48,7 @@ h4 {
     padding: 2px;
     font-size: 14px;
     color: #fff;
-    background-color: #365f91;
+    background-color: @colour_hover;
 }
 
 
@@ -70,7 +67,7 @@ span {
 // -------------------------------------------------
 
 a {
-    color: rgb(54, 95, 145);
+    color: @colour_hover;
     text-decoration: none;
     cursor: pointer;
 

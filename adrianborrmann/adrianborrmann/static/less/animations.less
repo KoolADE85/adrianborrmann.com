@@ -1,5 +1,7 @@
+@import "settings.less";
+
 // Desktop Animations
-@media only screen and (min-width: 969px) {
+@media only screen and (min-width: @site_width) {
     body {
         transform: scale(1);
         transform-origin: bottom center;
@@ -27,5 +29,22 @@
         &:nth-child(4) { transition-delay: 0.9s }
         &:nth-child(5) { transition-delay: 1.1s }
         &:nth-child(6) { transition-delay: 1.3s }
+    }
+}
+
+
+// Mobile Animations
+@media only screen and (max-width: @site_width) {
+    section {
+        
+        > ul {
+            // TODO: Why isn't this animation working?
+            max-height: 0px;
+            transition: max-height 0.5s;
+        }
+
+        &.active > ul {
+            max-height: 10000px;
+        }
     }
 }

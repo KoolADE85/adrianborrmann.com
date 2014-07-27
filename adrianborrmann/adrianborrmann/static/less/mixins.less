@@ -2,21 +2,6 @@
  * Snippets of reusable CSS to develop faster and keep code readable
  * ----------------------------------------------------------------- */
 
-// Clearfix for clearing floats like a boss h5bp.com/q
-.clearfix() {
-    zoom: 1;
-    &:before,
-    &:after {
-        display: table;
-        content: "";
-        zoom: 1;
-        *display: inline;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
 .relativeFont(@size: @base_font_size) {
     font-size: 1em * @size / @base_font_size;
 }

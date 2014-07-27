@@ -47,17 +47,8 @@
     Core.prototype._initResume = function() {
         
         $('section').on('click', function(e) {
-            var openCurrentTarget = true;
-            $('section.active').each(function() {
-                if (e.currentTarget === this) {
-                    openCurrentTarget = false;
-                }
-                $(this).removeClass('active');
-            });
-            
-            if (openCurrentTarget) {
-                $(this).addClass('active');
-            }
+            $('section.active').removeClass('active');
+            $(this).addClass('active');
         });
     };
     

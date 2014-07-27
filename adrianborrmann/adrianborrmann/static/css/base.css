@@ -6,10 +6,10 @@ html {
   -ms-text-size-adjust: 100%;
 }
 body {
-  color: #000000;
+  color: #333333;
   font-family: 'Raleway', sans-serif;
   font-size: 13px;
-  line-height: 1.1;
+  line-height: 1.1em;
 }
 h1,
 h2,
@@ -24,7 +24,7 @@ h1 {
   font-size: 76px;
   text-transform: lowercase;
   color: #c3d3e7;
-  line-height: 1.3em;
+  line-height: 1.5em;
   white-space: nowrap;
 }
 h2 {
