@@ -46,7 +46,7 @@
     
     Core.prototype._initResume = function() {
         
-        $('section').on('click', function(e) {
+        $('section').on('click', function() {
             $('section.active').removeClass('active');
             $(this).addClass('active');
         });
