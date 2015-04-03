@@ -1,48 +1,46 @@
 module.exports = function(grunt) {
     'use strict';
 
-    var static_folder = 'static/';
-    var assets = require('grunt-assets')
-        .importAssets(grunt, 'assets.json', static_folder);
+    var staticDir = 'static/';
 
-
-    // Project configuration.
     grunt.initConfig({
-        // Metadata.
+        
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %>\n' + '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>; */',
+        banner: '/*! <%= pkg.title %> - <%= pkg.homepage %> last modified <%= grunt.template.today("yyyy-mm-dd") %>*/',
 
-        static_folder: static_folder,
+        staticDir: staticDir,
 
-        less: assets.getLessConfig(),
-
-        jshint: {
-            options: {
-                jshintrc: '<%= static_folder %>js/.jshintrc'
-            },
-            gruntfile: {
-                options: {
-                    jshintrc: '.jshintrc'
-                },
-                src: 'Gruntfile.js'
-            },
-            project : {
-                src: '<%= static_folder %>js/**/*.js'
+        clean: {
+            dist: {
+                src: [
+                    '<%= staticDir %>dist/',
+                ]
             }
         },
 
-        concat: assets.getConcatConfig({
+        jshint: {
             options: {
-                banner: '<%= banner %>',
-                stripBanners: true
+                jshintrc: true
+            },
+            project : {
+                src: '<%= staticDir %>js/**/*.js'
             }
-        }),
+        },
 
-        uglify: assets.getUglifyConfig({
-            options: {
-                banner: '<%= banner %>'
+        less: {
+            dist: {
+                options: {
+                    banner: '<%= banner %>',
+                    compress: true,
+                    sourceMap: true,
+                    sourceMapURL: '/<%= staticDir %>dist/adrianborrmann.com.min.css.map',
+                    outputSourceFiles: true
+                },
+                files: {
+                    '<%= staticDir %>dist/adrianborrmann.com.min.css': '<%= staticDir %>less/adrianborrmann.com.less'
+                }
             }
-        }),
+        },
 
         regarde: {
             gruntfile: {
@@ -53,11 +51,11 @@ module.exports = function(grunt) {
                 }
             },
             javascript: {
-                files: ['<%= static_folder %>js/*.js'],
+                files: ['<%= staticDir %>js/*.js'],
                 tasks: ['livereload', 'clean:javascript', 'jshint', 'concat', 'uglify']
             },
             less: {
-                files: ['<%= static_folder %>less/*.less'],
+                files: ['<%= staticDir %>less/*.less'],
                 tasks: ['clean:css', 'less', 'livereload']
             },
             templates: {
@@ -72,38 +70,37 @@ module.exports = function(grunt) {
             }
         },
 
-        clean: {
-            javascript: {
-                src : ['<%= static_folder %>dist/**/*.js']
-            },
-            css: {
-                src : ['<%= static_folder %>dist/**/*.css']
-            }
-        },
-
-        exec : {
-            reload_assets : {
-                cmd: 'touch settings.py'
+        uglify: {
+            dist: {
+                options: {
+                    banner: '<%= banner %>',
+                    mangle: true,
+                    compress: true,
+                    screwIE8: true,
+                    sourceMap: true,
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= staticDir %>js',
+                    src: '**/*.js',
+                    dest: '<%= staticDir %>dist'
+                }]
             }
         }
     });
 
 
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-
-    grunt.loadNpmTasks('grunt-regarde');
-    grunt.loadNpmTasks('grunt-contrib-livereload');
-
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify', 'jshint']);
-    //grunt.registerTask('build', ['clean', 'less', 'concat', 'uglify']);
-
-    grunt.registerTask('watch', ['livereload-start', 'clean', 'less', 'regarde']);
-
+    grunt.registerTask('build', [
+        'clean',
+        'less',
+        'jshint',
+        'uglify',
+    ]);
     grunt.registerTask('default', ['build']);
 };

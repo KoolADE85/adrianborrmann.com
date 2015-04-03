@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<!--
+
+    Thanks for checking out my source code!!
+    I've tried to keep it clean, so hopefully it's to your liking.
+
+    Like any good developer, I've minified all my assets. But if you want to
+    have a look at the raw files, just take the ".min" off the filename and
+    you'll be able to have a peek.
+
+-->
 <html lang="en" class="loading">
     <head>
         <meta charset="utf-8">
@@ -11,18 +21,7 @@
         <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
 
         <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
-        
-        {% if debug %}
-        <link href="{{ STATIC_URL }}css/reset.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/layout.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/module.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/page.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/state.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="{{ STATIC_URL }}css/animations.css" rel="stylesheet" type="text/css" media="all" />
-        {% else %}
-        <link href="{{ STATIC_URL }}dist/core.min.css" rel="stylesheet" type="text/css" media="all" />
-        {% endif %}
+        <link href="{{ STATIC_URL }}dist/adrianborrmann.com.min.css" rel="stylesheet" type="text/css" media="all" />
         
         <script type="text/javascript" src="{{ STATIC_URL }}lib/modernizr.custom.js" charset="utf-8"></script>
         <script>
