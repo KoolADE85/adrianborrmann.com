@@ -11,14 +11,15 @@
 <section id="Contact">
     <div>647-705-0989</div>
     <div><a href="mailto:adrian@adrianborrmann.com">adrian@adrianborrmann.com</a></div>
+    <div class="no-print"><a href="http://code.adrianborrmann.com">Check out my personal projects!</a></div>
 </section>
 
 <section id="Skills">
-    <h2>Core Skills</h2>
+    <h2>Full-stack Development Skills</h2>
     <ul>
         <li>Expert Knowledge of HTML 5, CSS 3, and JavaScript</li>
-        <li>Deep experience with open-source software like Ubuntu, Django, PHP, Subversion, and Git</li>
-        <li>Proficiency with JavaScript libraries like jQuery, Node.js, Backbone.js, and others</li>
+        <li>Deep experience with open-source software like Ubuntu, Django, PHP, Git, and Subversion</li>
+        <li>Proficiency with JavaScript libraries like jQuery, Node.js, Backbone, and others</li>
         <li>Experience integrating Facebook, Twitter, YouTube, and countless other APIs</li>
         <li>Familiar with various analytics engines and SEO principles</li>
         <li>Always curious and continuously improving: I write high-quality, efficient code</li>
@@ -39,7 +40,9 @@
         <li>
             <h4 class="title">{{ website.name }}</h4>
             <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{% if website.is_current %}Present{% else %}{{ website.end_date|date:"F Y" }}{% endif %}</span>
-            <div class="link"><a href="{{ website.url }}">{{ website.url }}</a></div>
+            <div class="link">
+                <a href="{{ website.url }}">{{ website.url }}</a>
+            </div>
 
             {% if website.description %}
             <div class="description markdown-content">{{ website.description|markdown }}</div>
