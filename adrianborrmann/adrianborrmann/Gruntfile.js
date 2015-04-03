@@ -42,34 +42,6 @@ module.exports = function(grunt) {
             }
         },
 
-        regarde: {
-            gruntfile: {
-                files: 'Gruntfile.js',
-                tasks: ['jshint:gruntfile'],
-                options: {
-                    nocase: true
-                }
-            },
-            javascript: {
-                files: ['<%= staticDir %>js/*.js'],
-                tasks: ['livereload', 'clean:javascript', 'jshint', 'concat', 'uglify']
-            },
-            less: {
-                files: ['<%= staticDir %>less/*.less'],
-                tasks: ['clean:css', 'less', 'livereload']
-            },
-            templates: {
-                files: [
-                    'templates/**/*.html'
-                ],
-                tasks: ['livereload']
-            },
-            assets: {
-                files: ['assets.json', '**/*.mo'],
-                tasks: ['exec:reload_assets']
-            }
-        },
-
         uglify: {
             dist: {
                 options: {
@@ -85,6 +57,16 @@ module.exports = function(grunt) {
                     src: '**/*.js',
                     dest: '<%= staticDir %>dist'
                 }]
+            }
+        },
+
+        watch: {
+            static: {
+                options: {
+                    livereload: true,
+                },
+                files: ['<%= staticDir %>less/**/*.less', '<%= staticDir %>js/**/*.js'],
+                tasks: ['default']
             }
         }
     });

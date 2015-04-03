@@ -38,6 +38,10 @@
                 }
             });
         </script>
+
+        {% if debug %}
+        <script src="//localhost:35729/livereload.js"></script>
+        {% endif %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
