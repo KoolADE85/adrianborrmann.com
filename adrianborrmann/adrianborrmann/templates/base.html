@@ -17,9 +17,9 @@
         
         <meta name="description" content="Toronto-based web developer with expert skills in HTML5, CSS3, and JavaScript.">
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
-        
-        <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
+        <meta name="theme-color" content="#205081">
 
+        <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
         <link href='http://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ STATIC_URL }}dist/adrianborrmann.com.min.css" rel="stylesheet" type="text/css" media="all" />
         
@@ -27,13 +27,9 @@
         <script>
             Modernizr.load({
                 load : {
-                    {% if debug %}
                     "underscore": "{{ STATIC_URL }}lib/underscore.js",
                     "jquery": "{{ STATIC_URL }}lib/jquery.js",
                     "initialize": "{{ STATIC_URL }}js/adrianborrmann.initialize.js"
-                    {% else %}
-                    "core-scripts": "{{ STATIC_URL }}dist/core.min.js"
-                    {% endif %}
                 },
                 complete : function() {
                     $(function() {

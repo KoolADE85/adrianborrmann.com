@@ -9,7 +9,7 @@
 <h1>Adrian Borrmann</h1>
 
 <section id="Contact">
-    <div>647-705-0989</div>
+    <div><a href="tel:6477050989">647-705-0989</a></div>
     <div><a href="mailto:adrian@adrianborrmann.com">adrian@adrianborrmann.com</a></div>
     <div class="no-print"><a href="http://code.adrianborrmann.com">Check out my personal projects!</a></div>
 </section>
@@ -29,27 +29,44 @@
 <section id="Experience">
     <h2>Relevant Experience</h2>
 
-    <h3>Senior UI Developer at CBC/Radio-Canada</h3>
-    <p>As a user interface developer, I bring my passion for front-end technologies to deliver a great online audio/video experience for our audience. I use my expertise to build a beautiful, performant online experience.</p>
+    <h3 class="company-logo company-logo-cbc">Senior UI Developer at CBC/Radio-Canada</h3>
+    <div class="company-description">
+        <p>As a user interface developer, I bring my passion for front-end technologies to deliver a great online audio/video experience for our audience. Our high-traffic, high-visibility audio/video products are powered by my team's code. I take personal pride in developing performant and scalable applications so that our audience can access our content wherever and however they are. This includes special care to ensure our products are accessible on assistive devices and performant on slow internet connections, as well as accessible via third-party APIs.</p>
 
-    <h3>Senior Web Application Developer at Trapeze (now <a href="http://www.unioncreative.com">UNION Creative</a>)</h3>
-    <p>I have over 6 years of digital agency experience developing responsive, modern websites.</p>
+        <p>
+            <strong>Skills used:</strong>
+            <ul>
+                <li>HTML5 audio and video</li>
+                <li>Underscore.js, CSS animations</li>
+                <li>Akamai Edgesuite and ESI logic</li>
+                <li>WCAG 2.0 and ARIA techniques</li>
+                <li>Extensive integration with third parties to develop a quality product</li>
+                <li>Modern build processes with Grunt</li>
+                <li>Agile workflow with continuous deployment</li>
+            </ul>
+        </p>
+    </div>
 
-    <ul class="projects">
-        {% for website in websites %}
-        <li>
-            <h4 class="title">{{ website.name }}</h4>
-            <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{% if website.is_current %}Present{% else %}{{ website.end_date|date:"F Y" }}{% endif %}</span>
-            <div class="link">
-                <a href="{{ website.url }}">{{ website.url }}</a>
-            </div>
+    <h3 class="company-logo company-logo-trapeze">Senior Web Application Developer at Trapeze (now <a href="http://www.unioncreative.com">UNION Creative</a>)</h3>
+    <div class="company-description">
+        <p>I have over 6 years of digital agency experience developing responsive, modern websites.</p>
 
-            {% if website.description %}
-            <div class="description markdown-content">{{ website.description|markdown }}</div>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+        <ul class="projects">
+            {% for website in websites %}
+            <li>
+                <h4 class="title">{{ website.name }}</h4>
+                <span class="timeframe">{{ website.start_date|date:"F Y" }}&ndash;{% if website.is_current %}Present{% else %}{{ website.end_date|date:"F Y" }}{% endif %}</span>
+                <div class="link">
+                    <a href="{{ website.url }}">{{ website.url }}</a>
+                </div>
+
+                {% if website.description %}
+                <div class="description markdown-content">{{ website.description|markdown }}</div>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 </section>
 
 <section id="Education">
