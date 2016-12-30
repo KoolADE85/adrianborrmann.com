@@ -1,8 +1,27 @@
 // PAGES
 // =================================================
 
+.landing-page {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url(../images/slovenia.jpg) center center no-repeat;
+    background-size: cover;
+
+    a {
+        display: block;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #fff;
+        font-size: 0.75rem;
+    }
+}
+
 .resume-page {
-    
+
+    max-width: @site_width;
+
     #Contact {
 
         line-height: 1.1em;
@@ -23,9 +42,9 @@
             }
         }
     }
-    
+
     #Experience {
-        
+
         .projects > li {
             list-style-type: none;
         }

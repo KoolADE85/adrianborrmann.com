@@ -2,6 +2,27 @@
 {% load markup %}
 
 
+{% block head %}
+<link href='https://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="{{ STATIC_URL }}lib/modernizr.custom.js" charset="utf-8"></script>
+<script>
+    Modernizr.load({
+        load : {
+            "underscore": "{{ STATIC_URL }}lib/underscore.js",
+            "jquery": "{{ STATIC_URL }}lib/jquery.js",
+            "initialize": "{{ STATIC_URL }}js/adrianborrmann.initialize.js"
+        },
+        complete : function() {
+            $(function() {
+                new AdrianBorrmann.Core();
+            });
+        }
+    });
+</script>
+{% endblock %}
+
+
 {% block body_class %}resume-page{% endblock %}
 
 

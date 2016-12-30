@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <!--
 
-    Thanks for checking out my source code!!
-    I've tried to keep it clean, so hopefully it's to your liking.
-
-    Like any good developer, I've minified all my assets. But if you want to
-    have a look at the raw files, just take the ".min" off the filename and
-    you'll be able to have a peek.
+    "He who does not travel does not know the value of men"
+        - Moorish proverb
 
 -->
 <html lang="en" class="loading">
@@ -14,30 +10,15 @@
         <meta charset="utf-8">
 
         <title>Adrian Borrmann - {% block page_title %}Web Developer{% endblock %}</title>
-        
-        <meta name="description" content="Toronto-based web developer with expert skills in HTML5, CSS3, and JavaScript.">
+
+        <meta name="description" content="Toronto-based web developer">
         <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
         <meta name="theme-color" content="#205081">
 
         <link rel="shortcut icon" type="image/ico" href="{{ STATIC_URL }}images/favicon.ico">
-        <link href='https://fonts.googleapis.com/css?family=Bevan|Raleway:400,700' rel='stylesheet' type='text/css'>
         <link href="{{ STATIC_URL }}dist/adrianborrmann.com.min.css" rel="stylesheet" type="text/css" media="all" />
-        
-        <script type="text/javascript" src="{{ STATIC_URL }}lib/modernizr.custom.js" charset="utf-8"></script>
-        <script>
-            Modernizr.load({
-                load : {
-                    "underscore": "{{ STATIC_URL }}lib/underscore.js",
-                    "jquery": "{{ STATIC_URL }}lib/jquery.js",
-                    "initialize": "{{ STATIC_URL }}js/adrianborrmann.initialize.js"
-                },
-                complete : function() {
-                    $(function() {
-                        new AdrianBorrmann.Core();
-                    });
-                }
-            });
-        </script>
+
+        {% block head %}{% endblock %}
 
         {% if debug %}
         <script src="//localhost:35729/livereload.js"></script>
@@ -46,7 +27,7 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% block content %}{% endblock %}
-        
+
         {% comment %}
         {% if debug %}
         <script>
