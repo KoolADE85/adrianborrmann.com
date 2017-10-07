@@ -48,7 +48,6 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>',
                     mangle: true,
                     compress: true,
-                    screwIE8: true,
                     sourceMap: true,
                 },
                 files: [{
